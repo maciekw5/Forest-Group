@@ -141,7 +141,7 @@ textarea {
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
-	background-image: url('/dist/img/forest-header-small.jpg');
+	background-image: url('./dist/img/forest-header-small.jpg');
 	@include heroImage;
 	color: $pure-white;
 	z-index: -2;
