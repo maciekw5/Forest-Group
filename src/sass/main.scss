@@ -141,7 +141,7 @@ textarea {
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
-	background-image: url('./dist/img/forest-header-small.jpg');
+	background-image: url('../../dist/img/forest-header-small.jpg');
 	@include heroImage;
 	color: $pure-white;
 	z-index: -2;
@@ -191,7 +191,7 @@ textarea {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	background-image: url('/dist/img/forest-panel-small.jpg');
+	background-image: url('../../dist/img/forest-panel-small.jpg');
 	@include heroImage;
 	background-attachment: fixed;
 	color: $pure-white;
@@ -691,7 +691,7 @@ textarea {
 	}
 
 	.header {
-		background-image: url('/dist/img/forest-header-big.jpg');
+		background-image: url('../../dist/img/forest-header-big.jpg');
 		height: 40rem;
 
 		&__text {
@@ -729,7 +729,7 @@ textarea {
 	}
 
 	.panel {
-		background-image: url('/dist/img/forest-panel-big.jpg');
+		background-image: url('../../dist/img/forest-panel-big.jpg');
 
 		&-box {
 			&-title {
