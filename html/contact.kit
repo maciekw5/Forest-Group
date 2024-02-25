@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" user-scalable="no" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Forest Website | Kontakt">
+    <title>Forest Website | Kontakt</title>
+
+    <link rel='stylesheet'
+        href='https://cdn-uicons.flaticon.com/2.1.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./dist/css/main.min.css">
+
+</head>
+
+<body>
+
+    <button class="burger-btn" aria-label="burger-btn">
+        <span class="burger-btn__box">
+            <span class="burger-btn__bars"></span>
+        </span>
+    </button>
+    
+    <nav class="nav-mobile">
+        <ul class="nav-mobile__list">
+            <li class="nav-mobile__list-item"><a aria-label="navigation-home" class="nav-mobile__list-item-link" href="index.html">Home</a></li>
+            <li class="nav-mobile__list-item"><a aria-label="navigation-aboutus" class="nav-mobile__list-item-link" href="index.html#aboutus">O nas</a></li>
+            <li class="nav-mobile__list-item"><a aria-label="navigation-offer" class="nav-mobile__list-item-link" href="index.html#offer">Oferta</a></li>
+            <li class="nav-mobile__list-item"><a aria-label="navigation-contact" class="nav-mobile__list-item-link" href="contact.html">Kontakt</a></li>
+        </ul>
+    
+    
+    </nav>
+    
+    
+    <div class="wrapper">
+    
+        <nav class="nav-desktop">
+    
+            <div class="nav-desktop__logo">
+                <i class="fi fi-rr-tree"></i>
+                <p class="nav-desktop__logo-title">Forest</p>
+            </div>
+    
+            <ul class="nav-desktop__list">
+                <li class="nav-desktop__list-item"><a class="nav-desktop__list-item-link" href="index.html">Home</a></li><li class="nav-desktop__list-item"><a class="nav-desktop__list-item-link" href="index.html">O nas</a></li><li class="nav-desktop__list-item"><a class="nav-desktop__list-item-link" href="index.html">Oferta</a></li><li class="nav-desktop__list-item"><a class="nav-desktop__list-item-link" href="contact.html">Kontakt</a>
+                </li>
+            </ul>
+        </nav>
+    
+    </div>
+
+    <header class="header section-padding section">
+
+        <div class="img-shadow">
+        </div>
+
+
+        <div class="wrapper">
+            <div class="header__text">
+                <h1 class="header__text-title">Forest Group</h1>
+                <h2 class="header__text-info">Najpiękniejszy park w Twojej okolicy!</h2>
+            </div>
+        </div>
+
+
+    </header>
+
+
+    <main class="main main-contact">
+
+ 
+        <section class="contactus section-padding section white-section">
+            
+            <h2 class="section-title">Skontaktuj się z nami!</h2>
+
+
+    
+            <form action="mail.php" method="post" class="form">
+    
+                    <div class="form-box">
+                        <label aria-label="Twoje imię:" class="form-box-label" for="name">Imię:</label>
+                        <input class="form-box-input" type="text" id="name" name="name" required>
+                    </div>
+    
+                    <div class="form-box form-box-middle">
+                        <label aria-label="Twój adres mailowy:" class="form-box-label" for="email">Email:</label>
+                        <input class="form-box-input" type="email" id="email" name="email" required>
+                    </div>
+    
+                    <div class="form-box">
+                        <label aria-label="Napisz do nas wiadomość" class="form-box-label" for="msg">Wiadomość:</label>
+                        <textarea class="form-box-textarea" name="msg" id="msg" required></textarea>
+                    </div>
+                    
+                    <p class="form-info"><input type="checkbox" class="form-confirm"> Wyrażam zgodę na przetwarzanie moich danych osobowych przez Forest Group w celu prowadzenia analizy danych i optymalizacji strony internetowej.</p>
+
+                    <button aria-label="Wyślij formularz kontaktowy" class="btn btn-special-animation form-btn">Wyślij</button>
+
+
+            </form>
+        </section>
+
+
+        <h2 class="section-title">Mapa dojazdu</h2>
+    
+    
+                <iframe class="contact-map section white-section" aria-label="Mapa dojazdu" title="Mapa dojazdu do firmy" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2559.8980500890143!2d19.89026927750748!3d50.088195613379526!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47165a326d015c3b%3A0x47a12cd367a1f34e!2sRestauracja%20McDonald&#39;s!5e0!3m2!1spl!2spl!4v1708628724654!5m2!1spl!2spl" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+           
+    
+    
+
+    </main>
+
+
+
+    <!-- @include footer.kit -->
+    <script src="./dist/js/main.min.js"></script>
+</body>
+
+</html>

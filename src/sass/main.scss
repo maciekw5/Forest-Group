@@ -1,0 +1,868 @@
+@use './colors' as *;
+@use './components' as *;
+@use './mixins' as *;
+
+*,
+*::after,
+*::before {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	font-size: 62.5%;
+	scroll-behavior: smooth;
+}
+
+body {
+	font-family: 'Poppins', sans-serif;
+	font-size: 1.6rem;
+}
+
+button,
+input,
+option,
+textarea {
+	font-family: inherit;
+}
+
+.img-shadow {
+	@include heroShadow;
+}
+
+.burger-btn {
+	position: fixed;
+	top: 0.8rem;
+	right: 0.8rem;
+	padding: 1em;
+	background: none;
+	border: 1px solid transparent;
+	border-radius: 8px;
+	cursor: pointer;
+	z-index: 100;
+
+	&:focus {
+		outline: none;
+		border: 1px solid $pure-white;
+	}
+}
+
+.burger-btn__box,
+.burger-btn__bars {
+	display: block;
+}
+
+.burger-btn__box {
+	position: relative;
+	width: 4rem;
+	height: 3rem;
+}
+
+.burger-btn__bars,
+.burger-btn__bars::after,
+.burger-btn__bars::before {
+	position: absolute;
+	content: '';
+	height: 3px;
+	right: 0;
+	width: 100%;
+	border-radius: 10px;
+	background-color: $pure-white;
+	transition: background-color 0.3s;
+}
+
+.burger-btn__bars::after {
+	top: 1.3rem;
+	width: 80%;
+	left: 50%;
+	transform: translateX(-50%);
+}
+.burger-btn__bars::before {
+	top: 2.7rem;
+	width: 100%;
+}
+
+.black-bars-color,
+.black-bars-color::after,
+.black-bars-color::before {
+	background-color: $black;
+}
+.nav-desktop {
+	display: none;
+}
+
+.nav-mobile {
+	position: fixed;
+	top: 0;
+	min-width: 100%;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	background: $light-white;
+	transform: translateX(200%);
+	transition: transform 0.5s;
+	z-index: 90;
+
+	&__list {
+		list-style: none;
+
+		&-item {
+			margin: 2em 0;
+			font-size: 2rem;
+			font-weight: bold;
+
+			&-link {
+				text-decoration: none;
+				color: $black;
+				padding: 0.8em;
+				transition: color 0.3s;
+
+				&:hover {
+					color: $text-muted;
+				}
+			}
+		}
+	}
+}
+
+.show-nav-mobile {
+	transform: translateX(0);
+}
+
+.body-overflow {
+	overflow: hidden;
+}
+
+.header {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	background-image: url('/dist/img/forest-header-small.jpg');
+	@include heroImage;
+	color: $pure-white;
+	z-index: -2;
+	height: 20rem;
+
+	&__text {
+		z-index: 1;
+
+		&-title {
+			font-weight: 200;
+			font-size: 2rem;
+		}
+
+		&-info {
+			font-size: 2rem;
+			margin-top: 0.2em;
+		}
+	}
+}
+
+.aboutus-box {
+	display: flex;
+	flex-direction: column;
+
+	&-img-big {
+		display: none;
+	}
+
+	&-img-big,
+	&-img-small {
+		box-shadow: 0 0 5px $text-muted;
+	}
+
+	&__text {
+		&-title {
+			margin: 1em 0 0.5em 0;
+		}
+
+		&-info {
+			color: $text-muted;
+			line-height: 2em;
+		}
+	}
+}
+
+.panel {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-image: url('/dist/img/forest-panel-small.jpg');
+	@include heroImage;
+	background-attachment: fixed;
+	color: $pure-white;
+	z-index: -2;
+
+	&-box {
+		width: 100%;
+		padding: 1em;
+		max-width: 70rem;
+		border: 1px solid $pure-white;
+
+		&-title {
+			text-align: center;
+			font-size: 1.6rem;
+			font-weight: 400;
+		}
+	}
+}
+
+.offer {
+	&-ul-box {
+		display: flex;
+		justify-content: center;
+	}
+
+	&-info {
+		text-align: center;
+	}
+
+	&-cards {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		margin-top: 2em;
+	}
+
+	&-card-box {
+		padding: 1.5em 2em;
+		width: 25rem;
+		margin-top: 2em;
+		box-shadow: 0px 0px 5px $text-muted;
+
+		&-title {
+			text-align: center;
+			font-size: 2rem;
+			font-weight: 400;
+		}
+
+		&-price {
+			text-align: center;
+			font-weight: bold;
+			font-size: 2.5rem;
+			margin-top: 0.5em;
+		}
+
+		.dollar-value {
+			font-size: 3rem;
+		}
+
+		&-list {
+			display: flex;
+			flex-direction: column;
+
+			list-style: none;
+			margin: 1em 0;
+
+			&-item {
+				font-size: 1.4rem;
+				margin: 0.5em 0;
+			}
+
+			.fi {
+				margin-right: 0.5em;
+			}
+
+			.fi-rr-check {
+				color: $green;
+			}
+
+			.unavailable-item {
+				color: $text-muted;
+			}
+		}
+	}
+
+	&-btn {
+		margin-top: 1em;
+		padding: 0.6em 1.2em;
+		font-size: 1.6rem;
+		width: 100%;
+	}
+
+	.main-btn {
+		background-color: $black;
+		color: $pure-white;
+
+		&:hover {
+			color: $black;
+		}
+
+		&:focus {
+			outline: none;
+			background-color: $light-white;
+			color: $black;
+		}
+	}
+
+	.more-offers-box {
+		text-align: center;
+		margin-top: 2em;
+		font-size: 1.6rem;
+	}
+
+	.more-offers-link {
+		text-decoration: none;
+		font-weight: 900;
+		color: $black;
+		letter-spacing: 1px;
+		transition: color 0.3s;
+
+		&:hover {
+			color: $green;
+		}
+	}
+}
+
+.footer {
+	background-color: $light-white;
+
+	&-content {
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+	}
+
+	&-logo {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		.fi-rr-tree {
+			font-size: 4rem;
+			margin-right: 0.2em;
+		}
+
+		&__title {
+			font-weight: 200;
+			font-size: 3.5rem;
+		}
+	}
+
+	&-info {
+		display: flex;
+		justify-content: space-around;
+		margin-top: 2em;
+
+		&__box {
+			display: flex;
+			flex-direction: column;
+			margin: 0 1em;
+
+			&-title {
+				margin-bottom: 0.5em;
+				font-size: 1.6rem;
+			}
+			&-link {
+				color: $text-muted;
+				text-decoration: none;
+				font-size: 1.4rem;
+				margin-top: 1em;
+				transition: color 0.3s;
+
+				&:hover,
+				&:focus {
+					outline: none;
+					color: $black;
+				}
+			}
+		}
+	}
+
+	&-bottom {
+		padding: 1.2em;
+		text-align: center;
+		border-top: 1px solid $text-muted;
+		color: $text-muted;
+		width: 100%;
+	}
+}
+
+.contact-map {
+	transform: translateY(2%);
+}
+
+.contactus {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	.form {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		width: 100%;
+		padding: 2em;
+		max-width: 70rem;
+		border: none;
+		box-shadow: 0 0 5px $text-muted;
+
+		&-box {
+			display: flex;
+			flex-direction: column;
+			width: 100%;
+
+			&-label {
+				margin-bottom: 0.5em;
+			}
+
+			&-input,
+			&-textarea {
+				border: 1px solid $text-muted;
+				padding: 0.5em;
+				transition: background-color 0.3s;
+			}
+
+			&-input:focus,
+			&-textarea:focus {
+				outline: none;
+				background-color: $light-white;
+			}
+
+			&-textarea {
+				min-width: 100%;
+				max-width: 100%;
+				min-height: 15rem;
+				max-height: 25rem;
+			}
+		}
+
+		&-box-middle {
+			margin: 2em 0;
+		}
+
+		&-btn {
+			margin-top: 2.5em;
+			padding: 0.6em 1.2em;
+			width: 100%;
+			max-width: 40rem;
+		}
+
+		&-info {
+			text-align: center;
+			margin-top: 2em;
+			font-size: 1.2rem;
+			color: $text-muted;
+			font-style: italic;
+		}
+
+		&-confirm {
+			transition: transform 0.3s;
+			margin-right: 0.5em;
+			transform: translateY(10%);
+		}
+
+		&-confirm:focus {
+			outline: none;
+			transform: scale(1.2);
+		}
+	}
+
+	.nav-active {
+		background-color: $black;
+		color: $pure-white;
+	}
+}
+
+// Offer
+
+.cards-box {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+.card {
+	position: relative;
+	width: 100%;
+	height: 50rem;
+	margin: 2em;
+	box-shadow: 0 0 5px $text-muted;
+	overflow: hidden;
+}
+
+.card-img {
+	width: 100%;
+	height: 20rem;
+	@include heroImage;
+	object-fit: cover;
+}
+
+.card-img-first {
+	background-image: url('https://cdn.pixabay.com/photo/2024/01/23/10/23/reed-8527393_1280.jpg');
+}
+.card-img-second {
+	background-image: url('https://cdn.pixabay.com/photo/2024/01/25/12/30/forest-8531787_1280.jpg');
+}
+.card-img-third {
+	background-image: url('https://cdn.pixabay.com/photo/2023/07/17/12/13/bird-8132549_1280.jpg');
+}
+
+.card-body {
+	padding: 1.5em;
+}
+
+.card-title {
+	text-align: center;
+	margin: 1em 0;
+	font-size: 2rem;
+	font-weight: 400;
+}
+
+.card-link {
+	text-decoration: none;
+	color: initial;
+	position: absolute;
+	right: 2em;
+	bottom: 1.5em;
+	font-weight: 800;
+	font-size: 1.6rem;
+	transition: color 0.3s;
+	background: none;
+	border: none;
+	cursor: pointer;
+
+	&:hover {
+		color: $green;
+	}
+}
+
+.card-modal {
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	padding: 4em 2em;
+	inset: 0;
+	background-color: rgba(0, 0, 0, 0.5);
+	backdrop-filter: blur(15px);
+	transform: translateY(100%);
+	opacity: 0;
+	transition: transform 0.5s, opacity 0.5s;
+
+	&-title {
+		position: relative;
+		text-align: center;
+		padding-bottom: 1em;
+		margin: 1em 0;
+		color: $pure-white;
+
+		&::before {
+			position: absolute;
+			content: '';
+			bottom: 0;
+			left: 50%;
+			transform: translateX(-50%);
+			width: 100%;
+			height: 1px;
+			background-color: $light-white;
+		}
+	}
+	&-info {
+		line-height: 2em;
+		color: $light-white;
+		font-size: 1.4rem;
+	}
+
+	&-underline {
+		position: absolute;
+		width: 60%;
+		height: 1px;
+		left: 50%;
+		transform: translateX(-50%);
+		top: 22%;
+		background-color: $light-white;
+	}
+
+	&-btn {
+		position: absolute;
+		right: 2em;
+		bottom: 1.5em;
+		font-size: 1.6rem;
+		background: none;
+		border: none;
+		font-weight: 800;
+		color: $pure-white;
+		cursor: pointer;
+		transition: color 0.3s;
+		letter-spacing: 1px;
+
+		&:hover {
+			color: $green;
+		}
+	}
+}
+
+.show-modal {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+@media (min-width: 576px) {
+	.panel {
+		&-box {
+			padding: 2em;
+
+			&-title {
+				font-size: 2rem;
+			}
+		}
+	}
+
+	.footer {
+		&-info {
+			&__box {
+				margin: 2em;
+			}
+		}
+	}
+}
+
+@media (min-width: 768px) {
+	.section-padding {
+		padding: 4em;
+	}
+
+	.section-title {
+		font-size: 4rem;
+	}
+
+	.nav-mobile,
+	.burger-btn {
+		display: none;
+	}
+
+	.nav-desktop {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: space-around;
+		background-color: $pure-white;
+		box-shadow: 5px 0 10px -5px rgba(0, 0, 0, 0.5);
+		z-index: 90;
+
+		&__logo {
+			display: flex;
+			align-items: center;
+
+			&-title {
+				font-size: 3rem;
+				font-weight: 200;
+				margin-left: 0.2em;
+			}
+
+			.fi-rr-tree {
+				font-size: 3rem;
+				margin-top: 0.2em;
+			}
+		}
+
+		&__list {
+			list-style: none;
+
+			&-item {
+				display: inline-block;
+
+				&-link {
+					display: block;
+					text-decoration: none;
+					color: $black;
+					height: 100%;
+					padding: 1.5em 2em;
+					transition: background-color 0.3s, color 0.3s;
+
+					&:hover {
+						background-color: $black;
+						color: $pure-white;
+					}
+				}
+			}
+		}
+	}
+
+	.header {
+		background-image: url('/dist/img/forest-header-big.jpg');
+		height: 40rem;
+
+		&__text {
+			margin-top: 4em;
+			&-title,
+			&-info {
+				font-size: 2.5rem;
+			}
+		}
+	}
+
+	.aboutus-box {
+		flex-direction: row;
+
+		&-img-big {
+			display: block;
+			object-fit: cover;
+			width: 50%;
+			margin-right: 2em;
+		}
+
+		&-img-small {
+			display: none;
+		}
+
+		&__text {
+			padding-left: 2em;
+			width: 50%;
+
+			&-title {
+				margin: 0em 0 0.5em 0;
+				font-size: 2.4rem;
+			}
+		}
+	}
+
+	.panel {
+		background-image: url('/dist/img/forest-panel-big.jpg');
+
+		&-box {
+			&-title {
+				font-size: 3rem;
+			}
+		}
+	}
+
+	.offer {
+		&-cards {
+			flex-direction: row;
+			flex-wrap: wrap;
+		}
+
+		&-card-box {
+			margin: 2em;
+
+			&-title {
+				font-size: 3rem;
+			}
+		}
+
+		&-btn {
+			font-size: 1.6rem;
+		}
+	}
+
+	.footer {
+		&-logo {
+			&__title {
+				font-size: 4rem;
+			}
+		}
+
+		&-content {
+			flex-direction: row;
+			justify-content: space-around;
+			align-items: center;
+		}
+
+		&-info {
+			margin: 0;
+
+			&__box {
+				margin: 0 2em;
+			}
+		}
+	}
+
+	.card-title {
+		font-size: 2.5rem;
+	}
+	.card-modal {
+		&-title {
+			font-size: 2rem;
+		}
+
+		&-info {
+			font-size: 1.6rem;
+		}
+	}
+}
+
+@media (min-width: 992px) {
+	.section-padding {
+		padding: 8em 2em;
+	}
+
+	.section-title {
+		font-size: 5rem;
+	}
+
+	.nav-desktop {
+		&__logo-title,
+		.fi-rr-tree {
+			font-size: 3.5rem;
+		}
+
+		&__list-item-link {
+			font-size: 1.8rem;
+		}
+	}
+
+	.header {
+		padding: 10em 4em;
+
+		&__text {
+			&-info {
+				font-size: 4rem;
+			}
+		}
+	}
+
+	.card {
+		width: 40%;
+	}
+}
+
+@media (min-width: 1000px) {
+	.offer {
+		&-card-box {
+			width: 30rem;
+		}
+	}
+}
+
+.error-box {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	text-align: center;
+	height: 100vh;
+	background-color: $light-white;
+	padding: 5em;
+
+	.error-title {
+		font-size: 3rem;
+	}
+
+	.error-img {
+		font-size: 8rem;
+	}
+
+	.error-link {
+		margin-top: 0.5em;
+		text-decoration: none;
+		color: $black;
+		font-weight: 800;
+		transition: color 0.3s;
+
+		&:hover {
+			color: $green;
+		}
+	}
+}

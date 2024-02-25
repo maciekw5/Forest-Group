@@ -1,0 +1,53 @@
+@use './colors' as *;
+
+.wrapper {
+	margin: 0 auto;
+	max-width: 1200px;
+	width: 100%;
+}
+
+.section-padding {
+	padding: 4em 2em;
+}
+
+.section-title {
+	position: relative;
+	font-size: 3rem;
+	margin-bottom: 2em;
+	text-align: center;
+	font-weight: 200;
+}
+
+
+.btn {
+	border: 1px solid $black;
+	background: none;
+	cursor: pointer;
+	transition: background-color .3s;
+
+    &:focus {
+		outline: none;
+        background-color: $light-white;
+    }
+}
+
+.btn-special-animation {
+	position: relative;
+	overflow: hidden;
+	z-index: 0;
+
+	&::before {
+		position: absolute;
+		content: '';
+		inset: 0;
+		z-index: -1;
+		transform: translateY(100%);
+		background-color: $light-white;
+		transition: transform-origin 0.3s, transform 0.3s;
+	}
+
+	&:hover::before {
+		transform: translateY(0);
+	}
+
+}
